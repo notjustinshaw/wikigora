@@ -56,7 +56,7 @@ import DraggableBlockPlugin from "../plugins/DraggableBlockPlugin";
 import { useState } from "react";
 import FloatingLinkEditorPlugin from "../plugins/FloatingLinkEditorPlugin";
 
-export default function Editor() {
+export default function Editor({ isDebug = false }: { isDebug?: boolean }) {
 	const {
 		settings: { isCollab },
 	} = useSettings();
@@ -127,7 +127,7 @@ export default function Editor() {
 									ErrorBoundary={LexicalErrorBoundary}
 									placeholder={null}
 								/>
-								<TreeViewPlugin />
+								{isDebug && <TreeViewPlugin />}
 
 								<AutoFocusPlugin />
 								<AutoLinkPlugin />
