@@ -363,13 +363,11 @@ export default function ImageComponent({
 								<HistoryPlugin externalHistoryState={historyState} />
 							)}
 							<RichTextPlugin
-								contentEditable={
-									<ContentEditable className='min-h-5 border-0 resize-none cursor-text caret-black block relative outline-none py-2.5 px-2.5 select-text text-xs w-ful whitespace-pre-wrap break-words' />
-								}
+								contentEditable={<ContentEditable />}
 								placeholder={
-									<Placeholder className='text-sm text-gray-500 overflow-hidden absolute truncate top-2.5 left-2.5 select-none whitespace-nowrap inline-block pointer-events-none'>
+									<div className='text-sm text-gray-500 overflow-hidden absolute truncate top-2.5 left-2.5 select-none whitespace-nowrap inline-block pointer-events-none'>
 										Enter a caption...
-									</Placeholder>
+									</div>
 								}
 								ErrorBoundary={LexicalErrorBoundary}
 							/>
