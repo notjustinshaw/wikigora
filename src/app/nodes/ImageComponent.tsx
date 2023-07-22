@@ -52,7 +52,6 @@ import MentionsPlugin from "../plugins/MentionsPlugin";
 import TreeViewPlugin from "../plugins/TreeViewPlugin";
 import ContentEditable from "../ui/ContentEditable";
 import ImageResizer from "../ui/ImageResizer";
-import Placeholder from "../ui/Placeholder";
 import { $isImageNode } from "./ImageNode";
 
 const imageCache = new Set();
