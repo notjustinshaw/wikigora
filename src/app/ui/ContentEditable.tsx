@@ -13,7 +13,7 @@ export default function ContentEditable(): JSX.Element {
 	return (
 		<LexicalContentEditable
 			className={cx(
-				"flex-1 w-full p-8 text-lg diagonal-fractions resize-none caret-neutral-900 relative outline-none max-w-5xl h-full",
+				"flex-1 w-full p-4 lg:p-8 text-lg diagonal-fractions resize-none caret-neutral-900 relative outline-none max-w-5xl h-full",
 				"prose prose-neutral prose-lg dark:prose-invert prose-headings:font-display prose-headings:tracking-wide",
 				"prose-a:no-underline hover:prose-a:underline hover:prose-a:cursor-pointer prose-a:text-blue-700"
 			)}

@@ -119,7 +119,7 @@ export default function Editor() {
 			<SharedHistoryContext>
 				<TableContext>
 					<SharedAutocompleteContext>
-						<div className='flex-1 flex flex-col mt-8 relative w-full max-w-5xl overflow-x-hidden h-full mx-auto'>
+						<div className='flex-1 flex flex-col lg:mt-8 relative w-full max-w-5xl overflow-x-hidden h-full mx-auto'>
 							{/* <ToolbarPlugin /> */}
 							<div className='flex-1 flex flex-col' ref={onRef}>
 								<RichTextPlugin

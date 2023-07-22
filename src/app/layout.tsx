@@ -2,7 +2,7 @@ import "./styles/tailwind.css";
 import { cal, inter } from "@/app/styles/fonts";
 
 export const metadata = {
-	title: "Rewrite",
+	title: "Wikigora",
 	description: "A collaborative lexical editor styled with tailwind.",
 };
 

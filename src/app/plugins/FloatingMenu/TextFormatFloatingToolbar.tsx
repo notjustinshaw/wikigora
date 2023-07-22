@@ -81,7 +81,7 @@ export const blockTypeToBlockName = {
 	h4: "Heading",
 	h5: "Heading",
 	ol: "Numbered List",
-	paragraph: "Normal",
+	paragraph: "Text",
 	quote: "Quote",
 	ul: "Bulleted List",
 };
@@ -369,9 +369,10 @@ export function TextFormatFloatingToolbar({
 			}),
 			editor.registerCommand(
 				SELECTION_CHANGE_COMMAND,
-				(_payload, newEditor) => {
+				() => {
 					updateToolbar();
-					return false;
+					console.log("toolbar updated");
+					return true;
 				},
 				LowPriority
 			),
@@ -591,7 +592,10 @@ export function TextFormatFloatingToolbar({
 							onClick={() =>
 								editor.dispatchCommand(FORMAT_TEXT_COMMAND, "strikethrough")
 							}
-							className={cx(isStrikethrough && "bg-neutral-200")}
+							className={cx(
+								"hidden sm:flex",
+								isStrikethrough && "bg-neutral-200"
+							)}
 							label='Format text with a strikethrough'
 							icon={Strikethrough}
 						/>
@@ -600,6 +604,7 @@ export function TextFormatFloatingToolbar({
 								editor.dispatchCommand(FORMAT_TEXT_COMMAND, "subscript")
 							}
 							className={cx(
+								"hidden sm:flex",
 								"w-6 pt-1 px-0.5",
 								isSubscript && "bg-neutral-200"
 							)}
@@ -613,6 +618,7 @@ export function TextFormatFloatingToolbar({
 								editor.dispatchCommand(FORMAT_TEXT_COMMAND, "superscript")
 							}
 							className={cx(
+								"hidden sm:flex",
 								"w-6 pb-1 px-0.5",
 								isSuperscript && "bg-neutral-200"
 							)}
@@ -625,7 +631,7 @@ export function TextFormatFloatingToolbar({
 							onClick={() =>
 								editor.dispatchCommand(FORMAT_TEXT_COMMAND, "code")
 							}
-							className={cx(isCode && "bg-neutral-200")}
+							className={cx("hidden sm:flex", isCode && "bg-neutral-200")}
 							label='Insert code block'
 							icon={Code}
 						/>
