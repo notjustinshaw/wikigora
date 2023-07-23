@@ -49,6 +49,7 @@ import {
 	Code,
 	Heading1,
 	Heading2,
+	Heading3,
 	Italic,
 	Link,
 	List,
@@ -67,17 +68,17 @@ export const supportedBlockTypes = new Set([
 	"paragraph",
 	"quote",
 	"code",
-	"h1",
 	"h2",
+	"h3",
 	"ul",
 	"ol",
 ]);
 
 export const blockTypeToBlockName = {
 	code: "Code Block",
-	h1: "Large Heading",
-	h2: "Small Heading",
-	h3: "Heading",
+	h1: "Title",
+	h2: "Large Heading",
+	h3: "Small Heading",
 	h4: "Heading",
 	h5: "Heading",
 	ol: "Numbered List",
@@ -175,12 +176,25 @@ function BlockOptionsDropdownList({
 	};
 
 	const formatLargeHeading = () => {
-		if (blockType !== "h1") {
+		if (blockType !== "h2") {
 			editor.update(() => {
 				const selection = $getSelection();
 
 				if ($isRangeSelection(selection)) {
-					$wrapNodes(selection, () => $createHeadingNode("h1"));
+					$wrapNodes(selection, () => $createHeadingNode("h2"));
+				}
+			});
+		}
+		setShowBlockOptionsDropDown(false);
+	};
+
+	const formatMediumHeading = () => {
+		if (blockType !== "h3") {
+			editor.update(() => {
+				const selection = $getSelection();
+
+				if ($isRangeSelection(selection)) {
+					$wrapNodes(selection, () => $createHeadingNode("h3"));
 				}
 			});
 		}
@@ -188,12 +202,12 @@ function BlockOptionsDropdownList({
 	};
 
 	const formatSmallHeading = () => {
-		if (blockType !== "h2") {
+		if (blockType !== "h4") {
 			editor.update(() => {
 				const selection = $getSelection();
 
 				if ($isRangeSelection(selection)) {
-					$wrapNodes(selection, () => $createHeadingNode("h2"));
+					$wrapNodes(selection, () => $createHeadingNode("h4"));
 				}
 			});
 		}
@@ -254,13 +268,18 @@ function BlockOptionsDropdownList({
 			</button>
 			<button className='item flex gap-2' onClick={formatLargeHeading}>
 				<Heading1 size={18} />
-				<span className='text'>Heading 1</span>
-				{blockType === "h1" && <span className='active' />}
+				<span className='text'>Big Heading</span>
+				{blockType === "h2" && <span className='active' />}
+			</button>
+			<button className='item flex gap-2' onClick={formatMediumHeading}>
+				<Heading2 size={18} />
+				<span className='text'>Medium Heading</span>
+				{blockType === "h3" && <span className='active' />}
 			</button>
 			<button className='item flex gap-2' onClick={formatSmallHeading}>
-				<Heading2 size={18} />
-				<span className='text'>Heading 2</span>
-				{blockType === "h2" && <span className='active' />}
+				<Heading3 size={18} />
+				<span className='text'>Small Heading</span>
+				{blockType === "h4" && <span className='active' />}
 			</button>
 			<button className='item flex gap-2' onClick={formatBulletList}>
 				<List size={18} />
@@ -522,7 +541,7 @@ export function TextFormatFloatingToolbar({
 							<button
 								className={cx(
 									"flex flex-row px-3 lg:px-2 cursor-pointer items-center subpixel-antialiased",
-									"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200"
+									"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-900"
 								)}
 								onClick={() =>
 									setShowBlockOptionsDropDown(!showBlockOptionsDropDown)
@@ -556,7 +575,7 @@ export function TextFormatFloatingToolbar({
 							onClick={insertLink}
 							className={cx(
 								"flex flex-row gap-1 px-4 lg:px-2 cursor-pointer items-center subpixel-antialiased",
-								"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200"
+								"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-900"
 							)}
 							aria-label={"Add a hyperlink"}>
 							<Link size={16} strokeWidth={2} />
@@ -656,7 +675,7 @@ function ActionButton(props: {
 			onClick={props.onClick}
 			className={cx(
 				"flex px-3 lg:px-2 w-10 lg:w-8 cursor-pointer items-center subpixel-antialiased",
-				"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200",
+				"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-900",
 				props.className
 			)}
 			aria-label={props.label}>

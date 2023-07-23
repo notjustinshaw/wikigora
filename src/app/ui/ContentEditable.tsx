@@ -7,9 +7,23 @@
  */
 
 import cx from "classnames";
+import { useEffect } from "react";
 import { ContentEditable as LexicalContentEditable } from "@lexical/react/LexicalContentEditable";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import {
+	$convertFromMarkdownString,
+	$convertToMarkdownString,
+	TRANSFORMERS,
+} from "@lexical/markdown";
 
 export default function ContentEditable(): JSX.Element {
+	const [editor] = useLexicalComposerContext();
+	useEffect(() => {
+		editor.update(() => {
+			const markdown = $convertToMarkdownString(TRANSFORMERS);
+			console.log(markdown);
+		});
+	});
 	return (
 		<LexicalContentEditable
 			className={cx(
@@ -17,7 +31,7 @@ export default function ContentEditable(): JSX.Element {
 				"prose prose-neutral prose-lg dark:prose-invert prose-headings:font-display prose-headings:tracking-wide",
 				"prose-p:ios-select-none prose-ul:ios-select-none prose-ol:ios-select-none",
 				"prose-p:text-black prose-ul:text-black prose-ol:text-black dark:prose-p:text-white dark:prose-ul:text-white dark:prose-ol:text-white",
-				"prose-a:no-underline hover:prose-a:underline hover:prose-a:cursor-pointer prose-a:text-blue-700 dark:prose-a:text-blue-500"
+				"prose-a:no-underline hover:prose-a:underline hover:prose-a:cursor-pointer prose-a:text-blue-700 dark:prose-a:text-blue-400"
 			)}
 		/>
 	);
