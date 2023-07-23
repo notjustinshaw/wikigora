@@ -509,11 +509,11 @@ export function TextFormatFloatingToolbar({
 		<div
 			ref={popupCharStylesEditorRef}
 			className={cx(
-				"flex align-middle h-8",
+				"flex align-middle h-10 lg:h-8",
 				"absolute top-0 left-0 z-50 opacity-0",
-				"bg-white rounded-md border border-neutral-200 shadow-lg",
+				"bg-white dark:bg-neutral-800 rounded-md border border-neutral-200 dark:border-none shadow-lg",
 				"subpixel-antialiased transition-opacity will-change-transform",
-				"divide-x divide-neutral-200"
+				"divide-x divide-neutral-200 dark:divide-neutral-700"
 			)}>
 			{editor.isEditable() && (
 				<>
@@ -521,8 +521,8 @@ export function TextFormatFloatingToolbar({
 						<div className='flex flex-row'>
 							<button
 								className={cx(
-									"flex flex-row gap-1 px-2 cursor-pointer items-center subpixel-antialiased",
-									"text-neutral-800 hover:bg-neutral-200"
+									"flex flex-row px-3 lg:px-2 cursor-pointer items-center subpixel-antialiased",
+									"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200"
 								)}
 								onClick={() =>
 									setShowBlockOptionsDropDown(!showBlockOptionsDropDown)
@@ -555,15 +555,15 @@ export function TextFormatFloatingToolbar({
 							type='button'
 							onClick={insertLink}
 							className={cx(
-								"flex flex-row gap-1 px-2 cursor-pointer items-center subpixel-antialiased",
-								"text-neutral-800 hover:bg-neutral-200"
+								"flex flex-row gap-1 px-4 lg:px-2 cursor-pointer items-center subpixel-antialiased",
+								"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200"
 							)}
 							aria-label={"Add a hyperlink"}>
 							<Link size={16} strokeWidth={2} />
 							<span>Link</span>
 						</button>
 					</div>
-					<div className='flex flex-row'>
+					<div className='flex flex-row divide-x divide-neutral-200 dark:divide-neutral-700 lg:divide-none'>
 						<ActionButton
 							onClick={() =>
 								editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold")
@@ -655,8 +655,8 @@ function ActionButton(props: {
 			type='button'
 			onClick={props.onClick}
 			className={cx(
-				"flex px-2 w-8 cursor-pointer items-center subpixel-antialiased",
-				"text-neutral-800 hover:bg-neutral-200",
+				"flex px-3 lg:px-2 w-10 lg:w-8 cursor-pointer items-center subpixel-antialiased",
+				"text-neutral-800 dark:text-neutral-100 hover:bg-neutral-200",
 				props.className
 			)}
 			aria-label={props.label}>

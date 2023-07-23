@@ -56,7 +56,7 @@ import DraggableBlockPlugin from "../plugins/DraggableBlockPlugin";
 import { useState } from "react";
 import FloatingLinkEditorPlugin from "../plugins/FloatingLinkEditorPlugin";
 
-export default function Editor({ isDebug = false }: { isDebug?: boolean }) {
+export default function Editor({ isDebug = false }: { isDebug: boolean }) {
 	const {
 		settings: { isCollab },
 	} = useSettings();
@@ -119,9 +119,9 @@ export default function Editor({ isDebug = false }: { isDebug?: boolean }) {
 			<SharedHistoryContext>
 				<TableContext>
 					<SharedAutocompleteContext>
-						<div className='flex-1 flex flex-col lg:mt-8 relative w-full max-w-5xl overflow-x-hidden h-full mx-auto'>
+						<div className='relative flex-1 flex flex-col lg:mt-8 w-full max-w-5xl overflow-x-hidden h-full mx-auto'>
 							{/* <ToolbarPlugin /> */}
-							<div className='flex-1 flex flex-col' ref={onRef}>
+							<div className='relative flex-1 flex flex-col' ref={onRef}>
 								<RichTextPlugin
 									contentEditable={<ContentEditable />}
 									ErrorBoundary={LexicalErrorBoundary}

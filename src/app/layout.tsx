@@ -23,7 +23,7 @@ export default function RootLayout({
 					inter.className,
 					"m-0 bg-white dark:bg-black font-medium antialiased",
 					"flex flex-col justify-start items-center w-full min-h-screen",
-					"scrollbar-thin scrollbar-thumb-neutral-200 scrollbar-thumb-rounded-md scrollbar-track-rounded-md dark:border-neutral-700 dark:bg-neutral-950 dark:scrollbar-thumb-neutral-800"
+					"scrollbar-thin scrollbar-thumb-neutral-200 scrollbar-thumb-rounded-md scrollbar-track-rounded-md dark:border-neutral-700 dark:scrollbar-thumb-neutral-800"
 				)}>
 				{children}
 			</body>

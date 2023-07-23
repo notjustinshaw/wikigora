@@ -363,8 +363,8 @@ function useDraggableBlockMenu(
 		<>
 			<Image
 				className={cx(
-					"rounded-md py-1 absolute top-0 -left-2 will-change-transform w-6 h-6",
-					"cursor-grab active:cursor-grabbing hover:bg-neutral-100"
+					"hidden lg:flex rounded-md py-1 absolute top-0 left-0 will-change-transform w-6 h-6",
+					"cursor-grab active:cursor-grabbing hover:bg-neutral-100 select-none"
 				)}
 				src={"/drag.svg"}
 				alt='Draggable Block Menu'

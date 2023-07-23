@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	-webkit-touch-callout: none;
+}
+
+.ios-select-none {
+	user-select: none;
+	-webkit-user-select: none !important;
+}
+
 .toolbar {
 	@apply flex text-black bg-white dark:bg-neutral-900 dark:text-white p-1 rounded-t-lg align-middle border-b border-neutral-200;
 }
